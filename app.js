@@ -18,8 +18,10 @@ const passport = require("passport");
 const LocalStategy = require("passport-local");
 const User = require("./models/user.js");
 
+const dburl = process.env.ATLASTDB;
 
-const store = MongoStore.createKrupteinAdapter({
+
+const store = MongoStore.create({
    mongourl: dburl,
    crypto: {
   secret: process.env.SECRET, 
@@ -51,7 +53,6 @@ const userRouter = require("./routes/user.js");
 
 
 
-const dburl = process.env.ATLASTDB;
 
 main()
 .then(() => {
