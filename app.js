@@ -22,7 +22,7 @@ const User = require("./models/user.js");
 const store = MongoStore.createKrupteinAdapter({
    mongourl: dburl,
    crypto: {
-  secret: process.env.SECERET, 
+  secret: process.env.SECRET, 
    },
    touchAfter: 24 * 3600,
 });
@@ -33,7 +33,7 @@ store.on("error",() => {
 
 const sessionOption = {
    store,
-  secret: process.env.SECERET, 
+  secret: process.env.SECRET, 
   resave: false, 
   saveUninitialized: true,
    cookie: {
