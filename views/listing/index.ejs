@@ -1,0 +1,122 @@
+<% layout("/layouts/boilerplate") %>
+
+
+
+<body>
+    <!-- <h3>All Listings </h3> -->
+    <!-- <form method="get" action="/listing/new">
+        <button>Create New  Listing</button>
+    </form> -->
+<!-- change start -->
+<!-- Filter Bar -->
+<div id="filter-bar">
+  <a href="/listing" class="filter-item <%= !currCategory ? 'active' : '' %>">
+    <i class="fa-solid fa-list"></i>
+    <span>All</span>
+  </a>
+  <a href="/listing?category=Farms" class="filter-item <%= currCategory === 'Farms' ? 'active' : '' %>">
+    <i class="fa-solid fa-tractor"></i>
+    <span>Farms</span>
+  </a>
+  <a href="/listing?category=Rooms" class="filter-item <%= currCategory === 'Rooms' ? 'active' : '' %>">
+    <i class="fa-solid fa-bed"></i>
+    <span>Rooms</span>
+  </a>
+  <a href="/listing?category=Amazing views" class="filter-item <%= currCategory === 'Amazing views' ? 'active' : '' %>">
+    <i class="fa-solid fa-mountain-sun"></i>
+    <span>Amazing views</span>
+  </a>
+  <a href="/listing?category=Iconic cities" class="filter-item <%= currCategory === 'Iconic cities' ? 'active' : '' %>">
+    <i class="fa-solid fa-city"></i>
+    <span>Iconic cities</span>
+  </a>
+  <a href="/listing?category=Surfing" class="filter-item <%= currCategory === 'Surfing' ? 'active' : '' %>">
+    <i class="fa-solid fa-wind"></i>
+    <span>Surfing</span>
+  </a>
+  <a href="/listing?category=Amazing pools" class="filter-item <%= currCategory === 'Amazing pools' ? 'active' : '' %>">
+    <i class="fa-solid fa-water-ladder"></i>
+    <span>Amazing pools</span>
+  </a>
+  <a href="/listing?category=Beach" class="filter-item <%= currCategory === 'Beach' ? 'active' : '' %>">
+    <i class="fa-solid fa-umbrella-beach"></i>
+    <span>Beach</span>
+  </a>
+  <a href="/listing?category=Cabins" class="filter-item <%= currCategory === 'Cabins' ? 'active' : '' %>">
+    <i class="fa-solid fa-house-chimney"></i>
+    <span>Cabins</span>
+  </a>
+  <a href="/listing?category=OMG!" class="filter-item <%= currCategory === 'OMG!' ? 'active' : '' %>">
+    <i class="fa-solid fa-face-surprise"></i>
+    <span>OMG!</span>
+  </a>
+  <a href="/listing?category=Lakefront" class="filter-item <%= currCategory === 'Lakefront' ? 'active' : '' %>">
+    <i class="fa-solid fa-water"></i>
+    <span>Lakefront</span>
+  </a>
+  <div class="filter-actions">
+    <button class="filter-btn" id="filtersBtn">
+      <i class="fa-solid fa-sliders"></i>
+      Filters
+    </button>
+    <div class="tax-toggle">
+      <span>Display total before taxes</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="taxToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- Listings Grid -->
+<div class="listings-grid">
+  <% if(allListing.length === 0) { %>
+    <div class="no-results">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h4>No listings found</h4>
+      <p>Try a different category</p>
+      <a href="/listing" class="btn btn-dark mt-2">Show all listings</a>
+    </div>
+  <% } else { %>
+    <% for(let listing of allListing) { %>
+      <a class="listing-card" href="/listing/<%= listing._id %>">
+        <img src="<%= listing.image.url %>" alt="<%= listing.title %>">
+        <div class="listing-info">
+          <h5><%= listing.title %></h5>
+          <p class="location"><%= listing.location %>, <%= listing.country %></p>
+          <p class="price"><strong>₹<%= listing.price.toLocaleString("en-IN") %></strong> / night</p>
+        </div>
+      </a>
+    <% } %>
+  <% } %>
+</div>
+<!-- change end -->
+
+</body>
+
+<script>
+  const taxToggle = document.getElementById("taxToggle");
+
+  const prices = document.querySelectorAll(".price");
+
+  const originalPrices = [];
+  prices.forEach((el) => {
+    const text = el.innerText; // "₹1,500 / night"
+    const num = parseInt(text.replace(/[^0-9]/g, "")); // 1500
+    originalPrices.push(num);
+  });
+
+  taxToggle.addEventListener("change", function () {
+    prices.forEach((el, i) => {
+      const basePrice = originalPrices[i];
+
+      if (taxToggle.checked) {
+        const withTax = Math.round(basePrice * 1.18);
+        el.innerHTML = `<strong>₹${withTax.toLocaleString("en-IN")}</strong> / night <span style="font-size:11px; color:#717171;">(incl. taxes)</span>`;
+      } else {
+        el.innerHTML = `<strong>₹${basePrice.toLocaleString("en-IN")}</strong> / night`;
+      }
+    });
+  });
+</script>

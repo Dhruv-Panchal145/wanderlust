@@ -1,0 +1,596 @@
+body {
+  background-color: pink;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* 
+ {
+  
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+.container{
+  flex: 1;
+}
+
+/*Navbar*/
+.navbar {
+  height: 5rem;
+ background-color: white;
+}
+
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+/* Footer */
+.footer{
+  height: 8rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:#f7f7f7;
+    border-top:1px solid #ddd;
+    font-size:14px;
+}
+
+.footer a{
+    text-decoration:none;
+    color:#222;
+    margin-left:15px;
+}
+
+.footer-left span{
+    margin-right:15px;
+}
+
+.footer-right span{
+    margin-right:15px;
+}
+
+/* Cards */
+.card{
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top{
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0;
+
+}
+
+.card-text p{
+  font-weight: 400; 
+}
+
+.listing-link{
+  text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay{
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* New Page */
+
+.add-btn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Edit Page */
+.editbtn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* show page */
+.show-img{
+  height: 30vh;
+}
+
+.btns{
+  display: flex;
+
+}
+
+.show-card{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* listing heading */
+.show-title {
+  text-align: left;
+  margin-left: 110px;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* reviews styling */
+/* Container - 2 column grid */
+.rvw-container-x9 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Card */
+.rvw-card-x9 {
+  padding: 15px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.rvw-card-x9:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Header (avatar + name) */
+.rvw-header-x9 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Avatar */
+.rvw-avatar-x9 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Name */
+.rvw-name-x9 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Date */
+.rvw-date-x9 {
+  margin: 0;
+  font-size: 12px;
+  color: gray;
+}
+
+/* Review Text */
+.rvw-text-x9 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Show more */
+.rvw-more-x9 {
+text-decoration: underline;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Rating container */
+.rvw-rating-x9 {
+  margin-top: 8px;
+}
+
+/* Stars */
+.star {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Filled stars */
+.star.filled {
+  color: #ff385c; /* Airbnb pink */
+}
+
+/* deleting reviews styling */
+.rvw-delete-btn-x9 {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #ff385c;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rvw-delete-btn-x9:hover {
+  background-color: #e03150;
+}
+
+.star-rating {
+  direction: rtl;
+  display: inline-flex;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star-rating input:checked ~ label {
+  color: gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+
+
+/* MAP */
+
+ #map { 
+  height: 400px;
+}
+
+ /* Filter Bar */
+#filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  overflow-x: auto;
+  border-bottom: 1px solid #e0e0e0;
+  scrollbar-width: none;
+  position: sticky;
+  top: 80px;
+  background: white;
+  z-index: 100;
+}
+
+#filter-bar::-webkit-scrollbar { display: none; }
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #717171;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.filter-item:hover { color: #222; border-bottom: 2px solid #222; }
+.filter-item.active { color: #222; border-bottom: 2px solid #222; font-weight: 600; }
+.filter-item i { font-size: 22px; }
+
+/* Listings Grid */
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 24px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .listings-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .listings-grid { grid-template-columns: repeat(1, 1fr); }
+}
+
+.listing-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.listing-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.listing-card:hover img {
+  opacity: 0.92;
+  transition: 0.2s;
+}
+
+.listing-info {
+  padding: 10px 2px 0 2px;
+}
+
+.listing-info h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: #222;
+}
+
+.listing-info .location {
+  font-size: 13px;
+  color: #717171;
+  margin-bottom: 2px;
+}
+
+.listing-info .price {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem;
+  color: #717171;
+  grid-column: 1 / -1;
+}
+
+.no-results i { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+/* Filter Actions */
+.filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  background: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.filter-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+.tax-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  background: white;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  margin: 0;
+}
+
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-switch input:checked + .slider { background-color: #222; }
+.toggle-switch input:checked + .slider:before { transform: translateX(20px); }
+
+
+/* Navbar */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  gap: 1rem;
+}
+
+/* Search Bar */
+/* Navbar */
+.navbar {
+  height: auto !important;
+  background-color: white !important;
+  padding: 12px 0 !important;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.navbar-brand {
+  flex-shrink: 0;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 40px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 8px 8px 8px 16px;
+  background: white;
+  transition: box-shadow 0.2s;
+   flex: 0 1 500px;
+  margin-left: auto; 
+  margin-right: 10.5rem; 
+}
+
+.search-bar:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+  min-width: 120px;
+}
+
+.search-section label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 2px;
+}
+
+.search-section input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: #555;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+}
+
+.search-section input::placeholder {
+  color: #aaa;
+}
+
+/* Date input — dd-mm-yyyy hide karo */
+.search-section input[type="date"] {
+  color: transparent;
+}
+
+.search-section input[type="date"]:focus,
+.search-section input[type="date"]:valid {
+  color: #555;
+}
+
+/* Ye CSS lagao taaki date picker icon na dikhaye */
+.search-section input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.search-divider {
+  width: 1px;
+  height: 28px;
+  background: #dddddd;
+  flex-shrink: 0;
+}
+
+.search-btn {
+  background: #fe424d;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: #e03150;
+}
+
+/* Nav Right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-right .nav-link {
+  font-size: 14px;
+  color: #222 !important;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.nav-right .nav-link:hover {
+  background: #f7f7f7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-bar {
+    display: none;
+  }
+  .nav-container {
+    padding: 0 1rem;
+  }
+}

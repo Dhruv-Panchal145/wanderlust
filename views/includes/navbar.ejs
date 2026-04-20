@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid nav-container">
+    
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listing">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- ✅ Search Bar -->
+    <form action="/listing/search" method="GET" class="search-bar">
+      <div class="search-section">
+        <label>Where</label>
+        <input type="text" name="location" placeholder="Search destinations" autocomplete="off"/>
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-section">
+        <label>When</label>
+        <input type="text" name="date" placeholder="Add dates" 
+  onfocus="(this.type='date')" 
+  onblur="if(!this.value) this.type='text'"/>
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-section">
+        <label>Who</label>
+        <input type="number" name="guests" placeholder="Add guests" min="1"/>
+      </div>
+      <button type="submit" class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+
+    <!-- Right Nav -->
+    <div class="nav-right">
+      <a class="nav-link" href="/listing/new">Airbnb your home</a>
+      <% if(!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+      <% } %>
+      <% if(currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+      <% } %>
+    </div>
+
+  </div>
+</nav>
