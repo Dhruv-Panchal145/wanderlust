@@ -4,15 +4,18 @@ const Review = require("../models/review");
 
 module.exports.renderReview = async(req,res) => {
   let listing = await Listing.findById(req.params.id);
+
+if (!req.body.review.rating) {
+  req.body.review.rating = 1;
+}  
+
   let newReview = new Review(req.body.review);
 
    newReview.author = req.user._id;   
 
   listing.reviews.push(newReview);
 
-if (!req.body.review.rating) {
-  req.body.review.rating = 1;
-}  
+
 
   await newReview.save();
   await listing.save();

@@ -134,6 +134,7 @@
        style="height: 400px;"
        data-lng="<%= listing.geometry.coordinates[0] %>"
      data-lat="<%= listing.geometry.coordinates[1] %>">
+      data-key="<%= process.env.AWS_TOKEN %>">  <%-- server side --%>
   </div>
 </div>
 </div>

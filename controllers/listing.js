@@ -1,9 +1,9 @@
-const Listing = require("../models/listing");;
+const Listing = require("../models/listing");
 
 // this is change st
 
 async function geocodeLocation(location, country) {
-  const apiKey = "v1.public.eyJqdGkiOiIyM2M1ZGY4YS02MDc2LTRkNzItOGI0Ni1lZjk4ZmU2NDc1YmQifRdMhDfZ7Xzn1405hj7oSa-fuOmNr4IxSHBgl8gDn9FXixwLX19wf9GYRceApEGqtAX-_0hgkobHjEm9Ain8sfNSaxGgJPcr_sRdQJ5bMRdqHjGhB0VY6tGQ7FUuWi9W7-J-SR4CKQ9r-jlpg2_ob1QRkr4DvBK3vF6m_HpBcF1hZsNGQ30C5olYaMyktjlYsmQevALJjn6VX2p7V_7gFmv9Jven74JZIE_-TyeUvhhoJJZfO55Tz-zi4_mCmyKbJX6-dEfZ-X8EP-ztLO3bqvOZANLiWebquNw8wEFJEMTZL4y-hVlFcPRowWpmprvUFG91vHmt5wdPPnUUQ62sMek.Njg1MGZlZTUtYTI2ZS00MDdlLWJjNDktMDNmZDlkNzVmMjQ0";
+  const apiKey = process.env.AWS_TOKEN;
   const region = "ap-south-1";
   
   const address = `${location}, ${country}`;

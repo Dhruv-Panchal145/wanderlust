@@ -5,11 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const apiKey = process.env.AWS_TOKEN;
+  const apiKey =  mapDiv.dataset.key;
   const region = "ap-south-1";
 
   const mapDiv = document.getElementById("map");
   
+if(isNaN(lat) || isNaN(lng)) {
+  console.error("Invalid coordinates");
+  return;
+}
+
   const lng = parseFloat(mapDiv.dataset.lng);
   const lat = parseFloat(mapDiv.dataset.lat);
 

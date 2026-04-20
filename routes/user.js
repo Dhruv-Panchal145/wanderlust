@@ -21,7 +21,7 @@ router
 .route("/login")
 // log in get req..
 .get(userController.login)
-//logi in post req..
+//log in post req..
 .post(
    saveRedirectUrl,
 passport.authenticate("local", 
