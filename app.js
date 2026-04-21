@@ -20,6 +20,9 @@ const User = require("./models/user.js");
 
 const dburl = process.env.ATLASTDB;
 
+if(!dbUrl) {
+  throw new Error("ATLASDB environment variable is not set!");
+}
 
 const store = MongoStore.create({
    mongourl: dburl,
