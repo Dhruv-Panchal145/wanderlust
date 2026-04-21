@@ -18,21 +18,21 @@ const passport = require("passport");
 const LocalStategy = require("passport-local");
 const User = require("./models/user.js");
 
-const dburl = process.env.ATLASTDB;
+const dbUrl = process.env.ATLASTDB;
 
-if(!dbUrl) {
-  throw new Error("ATLASDB environment variable is not set!");
+if (!dbUrl) {
+  throw new Error("ATLASTDB environment variable is not set!");
 }
 
 const store = MongoStore.create({
-   mongourl: dburl,
-   crypto: {
-  secret: process.env.SECRET, 
-   },
-   touchAfter: 24 * 3600,
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
 });
 
-store.on("error",() => {
+store.on("error",(err) => {
    console.log("ERROR IN MONGO SESSION STORE",err);  
 })
 
@@ -43,7 +43,7 @@ const sessionOption = {
   saveUninitialized: true,
    cookie: {
        expires: Date.now() + 7  *24 * 60 * 60 * 1000,
-       maxage:  7  *24 * 60 * 60 * 1000,
+       maxAge:  7  *24 * 60 * 60 * 1000,
        httpOnly: true,
    },
 };
