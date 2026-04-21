@@ -16,8 +16,7 @@
 
         <div class="card-body">
 
-            <p class="card-text"><i>  own by <%=  listing.owner.username %></i> </p>
-            
+      <p class="card-text"><i>own by <%= listing.owner ? listing.owner.username : "Unknown" %></i></p>
                <p> <%= listing.description %></p>
                <p> ₹<%= listing.price.toLocaleString("en-IN") %></p>
                <p> <%= listing.location %></p>
