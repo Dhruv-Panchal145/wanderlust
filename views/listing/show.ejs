@@ -22,7 +22,7 @@
                <p> <%= listing.location %></p>
                 <p><%= listing.country %></p>
            
-                <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+                <% if(currUser && listing.owner && listing.owner._id.equals(currUser._id)){ %>
             <a 
                 href="/listing/<%= listing._id %>/edit" 
                 class="btn btn-danger"
