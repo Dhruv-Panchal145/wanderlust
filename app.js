@@ -86,6 +86,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// ✅ Root redirect — seedha listing pe jayega
+app.get("/", (req, res) => {
+  res.redirect("/listing");
+});
+
 // app.get("/demouser", async (req,res) => {
 //     let fakeUser = new User ({
 //      email: "dhruv23@mgmail.com",
