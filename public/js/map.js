@@ -5,18 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const apiKey =  mapDiv.dataset.key;
-  const region = "ap-south-1";
-
-  const mapDiv = document.getElementById("map");
-  
-if(isNaN(lat) || isNaN(lng)) {
-  console.error("Invalid coordinates");
-  return;
-}
+  const mapDiv = document.getElementById("map"); // ✅ pehle define karo
 
   const lng = parseFloat(mapDiv.dataset.lng);
   const lat = parseFloat(mapDiv.dataset.lat);
+  const apiKey = mapDiv.dataset.key; // ✅ baad mein use karo
+
+  if (isNaN(lat) || isNaN(lng)) { // ✅ define hone ke baad check karo
+    console.error("Invalid coordinates");
+    return;
+  }
+
+  const region = "ap-south-1";
 
   console.log("lat:", lat, "lng:", lng);
 
