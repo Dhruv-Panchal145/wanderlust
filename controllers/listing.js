@@ -3,28 +3,22 @@ const Listing = require("../models/listing");
 // this is change st
 
 async function geocodeLocation(location, country) {
-  const apiKey = process.env.AWS_TOKEN;
-  const region = "ap-south-1";
-  
+  const apiKey = process.env.MAPTILER_API_KEY;
   const address = `${location}, ${country}`;
   const encoded = encodeURIComponent(address);
   
-  const url = `https://places.geo.${region}.amazonaws.com/v2/geocode?key=${apiKey}&query=${encoded}`;
+  const url = `https://api.maptiler.com/geocoding/${encoded}.json?key=${apiKey}`;
   
   const response = await fetch(url);
   const data = await response.json();
   
-  console.log("Geocode status:", response.status);
-  console.log("Geocode data:", JSON.stringify(data));
-  
-  if(data.ResultItems && data.ResultItems.length > 0) {
-    const coords = data.ResultItems[0].Position; // [lng, lat]
-    return coords;
+  if (data.features && data.features.length > 0) {
+    const [lng, lat] = data.features[0].center;
+    return [lng, lat];
   }
   
   return [72.5714, 23.0225]; // fallback Ahmedabad
 }
-// this is change ed
 
 
 module.exports.index = async (req, res) => {

@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const map = new maplibregl.Map({
     container: "map",
-    style: `https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?key=${apiKey}`,
+    style: `https://api.maptiler.com/maps/streets/style.json?key=${apiKey}`,
     center: [lng, lat],
     zoom: 13,
   });
